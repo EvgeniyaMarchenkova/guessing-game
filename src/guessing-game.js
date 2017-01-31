@@ -1,31 +1,23 @@
 class GuessingGame {
     constructor() {
         this.secretNumber = null;
-        this.arr = [];
+        this.min = null;
+        this.max = null;
     }
     setRange(min, max) {
-        for ( var i = min; i <= max; i++) {
-            this.arr.push(i);
-        }
+        this.min = min;
+        this.max = max;
     }
     guess() {
-        if (this.secretNumber = this.arr[0]  ) {
-            return this.arr[0];
-        }
-        if (this.secretNumber = this.arr[this.arr.length-1]) {
-            return this.arr[this.arr.length-1];
-        }
-        if (this.secretNumber = this.arr[1]  ) {
-            return this.arr[1];
-        }
-        return;
-}
+        this.secretNumber = Math.ceil((this.max+this.min)/2);
+        return this.secretNumber;
+    }
     lower() {
-        this.arr = this.arr.slice(0, Math.ceil(this.arr.length/2));
+        this.max = this.secretNumber;
     }
 
     greater() {
-        this.arr = this.arr.slice( Math.ceil(this.arr.length/2), this.arr.length);
+        this.min = this.secretNumber;
     }
 }
 
